@@ -1,0 +1,37 @@
+<section id="home">
+  {{#if disabled}}
+  <h1>Formulário fechado...</h1>
+  <div>
+    <p style="font-size: 12px;">Infelizmente a data limite chegou...</p>
+    <p style="font-size: 12px;">Mas te esperamos na próxima festa!</p>
+  </div>
+  {{else}}
+  <h1>Insira seus dados</h1>
+  <form action="/formulario" method="post">
+    <div class="form-control">
+      <label for="cpf">Seu CPF</label>
+      <input type="text" name="cpf" placeholder="CPF" class="cpf" id="cpf" required {{btn}} />
+    </div>
+    <div class="form-control">
+      <label for="matricula">Sua matricula</label>
+      <input type="text" name="matricula" placeholder="Matricula" class="matricula" id="matricula" required {{btn}} />
+    </div>
+    <div class="form-control">
+      <label for="nascimento">Seu nascimento</label>
+      <input
+        type="text"
+        name="nascimento"
+        class="nascimento date"
+        placeholder="__/__/____"
+        id="nascimento"
+        maxlength="10"
+        required {{btn}}
+      />
+    </div>
+    <p style="font-size: 12px;">Não está conseguindo entrar?
+      {{!-- No href continha uma página externa para o sindicalizado entrar em contato direto com o sindicato! --}}
+      <a href="">Clique aqui</a></p> 
+    <button>Entrar</button>
+    {{/if}}
+  </form>
+</section>

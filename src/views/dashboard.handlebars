@@ -1,0 +1,14 @@
+<h1>Dashboard</h1>
+{{#if access}}
+  <form action="/dashboard/action" method="post">
+    <button name="action" value="relatorio1">Gerar relatorio de presença</button>
+    <button name="action" value="relatorio2">Gerar relatorio de quem não vai</button>
+    <button name="action" value="relatorio3">Gerar relatorio de quem não marcou</button>
+    <button name="action" value="email">Enviar e-mails a quem não marcou presença</button>
+  </form>
+{{else}}
+  <form action="/dashboard" method="post">
+    <input type="password" name="password" placeholder="Senha" required />
+    <button>Entrar</button>
+  </form>
+{{/if}}

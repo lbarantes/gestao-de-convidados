@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Poppins";
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  height: 100dvh;
+}
+
+#home,
+#formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 50px;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #838179;
+  max-width: 500px;
+}
+
+#home form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+#home form input {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #838179;
+  border-radius: 8px;
+  outline: none;
+}
+
+#home form button,
+#formulario form button {
+  width: 200px;
+  padding: 5px;
+  border: none;
+  border-radius: 8px;
+  background-color: blue;
+  color: white;
+  transition: 0.5s;
+}
+
+#home form button:hover,
+#formulario form button:hover {
+  background-color: rgb(97, 97, 255);
+  cursor: pointer;
+}
+
+#formulario form button {
+  width: 175px;
+}
+
+#formulario form button.recusar {
+  background-color: inherit;
+  color: red;
+  border: 1px solid red;
+}
+
+#formulario form button.recusar:hover {
+  background-color: red;
+  color: white;
+}

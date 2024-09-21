@@ -1,0 +1,29 @@
+{
+  "name": "festasindicato",
+  "version": "1.0.0",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/index.js localhost 3000"
+  },
+  "author": "Lucas Beliene",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cookie-session": "^2.1.0",
+    "express": "^4.19.2",
+    "express-flash": "^0.0.2",
+    "express-handlebars": "^7.1.3",
+    "express-session": "^1.18.0",
+    "moment": "^2.30.1",
+    "mysql2": "^3.10.2",
+    "nodemailer": "^6.9.14",
+    "sequelize": "^6.37.3",
+    "session-file-store": "^1.5.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}

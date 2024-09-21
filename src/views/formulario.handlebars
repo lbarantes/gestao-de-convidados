@@ -1,0 +1,86 @@
+<section id="formulario">
+  <form action="/confirm" method="post">
+    <h1>Seus dados</h1>
+    <p><b>Nome: </b>{{sindicalizado.nome}}</p>
+    <p><b>CPF: </b>{{sindicalizado.cpf}}</p>
+    <input type="hidden" name="id" value="{{sindicalizado.id}}" />
+    <p><b>Matricula: </b>{{sindicalizado.matricula}}</p>
+    <p><b>Data de nascimento: </b>{{sindicalizado.nascimento}}</p>
+    <p><b>Banco: </b>{{sindicalizado.banco}}</p>
+    {{#if dependentes}}
+      <div class="dependentes">
+        <h1>Dependentes:</h1>
+        {{#if presenca}}
+          {{#each dependentesConfirmados}}
+            <div class="dependente">
+              <p for="{{this.id}}">{{this.nome}}</p>
+            </div>
+          {{/each}}
+        {{else}}
+          <b style="font-size: 12px; color: red;">Selecione as caixinhas dos dependentes que te acompanharão</b>
+          {{#each dependentes}}
+            <div class="dependente">
+              <input type="checkbox" name="dependentes[]" id="{{this.id}}" value="{{this.id}}" {{disabled}} />
+              <label for="{{this.id}}">{{this.nome}}</label>
+            </div>
+          {{/each}}
+        {{/if}}
+      </div>
+    {{else}}
+      {{#if convidado}}
+        {{#if presenca}}
+          <h1>Convidado:</h1>
+          <span>{{convidado.nome}}</span>
+        {{/if}}
+      {{else}}
+        {{#unless presenca}}
+          <p><b>Adicionar convidado</b></p>
+          <div>
+            <label for="convidado">Nome do convidado</label>
+            <input type="text" name="convidado" id="convidado" placeholder="Insira o nome do convidado!" />
+          </div>
+          <div>
+            <label for="convidadoCpf">CPF do convidado</label>
+            <input
+              type="text"
+              name="convidadoCpf"
+              class="cpf"
+              id="convidadoCpf"
+              placeholder="Insira o CPF do convidado!"
+            />
+          </div>
+          <div>
+            <label for="convidadoSexo">Sexo do convidado</label>
+            <select name="convidadoSexo" id="convidadoSexo">
+              <option value="" disabled selected>Escolha um</option>
+              <option value="masculino">Masculino</option>
+              <option value="feminino">Feminino</option>
+            </select>
+          </div>
+        {{/unless}}
+      {{/if}}
+    {{/if}}
+    {{#if presenca}}
+      {{#if vai}}
+        <h3 style="color: green">Nos vemos na festa!</h3>
+        <div class="buttons" style="margin-top: 20px;">
+          <button type="submit" class="recusar" name="confirm" value="reescolher">Desisti de ir...</button>
+        </div>
+      {{else}}
+        <p style="color: blue">Que pena que não nos veremos na festa...</p>
+        <div class="buttons" style="margin-top: 20px;">
+          <button type="submit" class="confirm" name="confirm" value="reescolher">Mudei de ideia</button>
+        </div>
+      {{/if}}
+    {{else}}
+      <div class="buttons" style="margin-top: 20px;">
+        <button type="submit" name="confirm" value="confirmar">Confirmar presença</button>
+        <button type="submit" class="recusar" name="confirm" value="recusar">Não estarei presente</button>
+      </div>
+    {{/if}}
+    <p style="font-size: 12px; margin-top: 15px;">Algo está incorreto?
+      <a
+        href="https://docs.google.com/forms/d/e/1FAIpQLSeIU1f1FzQLuQLnMb11s9efU3rN1b2RC9oU_XWtXKjn-t6L_g/viewform?usp=send_form"
+      >Clique aqui</a></p>
+  </form>
+</section>

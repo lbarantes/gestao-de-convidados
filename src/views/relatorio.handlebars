@@ -1,0 +1,13 @@
+{{#each pessoas}}
+  <h1>{{this.dataValues.nome}}</h1>
+  {{#if ../contabilizarPresenca}}
+    {{#if this.dataValues.Dependentes}}
+      {{#each this.dataValues.Dependentes}}
+        <p>- {{this.dataValues.nome}}</p>
+      {{/each}}
+    {{/if}}
+    {{#if this.dataValues.Convidados}}
+      <p>- {{this.dataValues.Convidados.dataValues.nome}}</p>
+    {{/if}}
+  {{/if}}
+{{/each}}
